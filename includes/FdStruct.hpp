@@ -1,4 +1,3 @@
-
 #ifndef FDSTRUCT_HPP
 # define FDSTRUCT_HPP
 
