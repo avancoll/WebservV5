@@ -152,7 +152,7 @@ void	Config::print_locations(Server server) {
 	}
 }
 
-void	Config::check_content() const {
+int	Config::check_content() const {
 	std::vector<int> ports;
 	int temp;
 	for (size_t i = 0; i < _servConf.size(); i++) {
@@ -171,5 +171,5 @@ void	Config::check_content() const {
 				return (1);
 		}
 	}
-	
+	return (0);
 }

@@ -36,6 +36,7 @@ int	Webserv::createServers(void) {
 				_sockets_list.push_back(s);
 		}
 	}
+	return (0);
 }
 
 int	Webserv::runServers() {
@@ -53,6 +54,7 @@ int	Webserv::runServers() {
 			}
 		}
 	}
+	return (0);
 }
 
 int	Webserv::handleServer(int fd, int filter) {
@@ -142,6 +144,7 @@ int	Webserv::handleServer(int fd, int filter) {
 		}
 	}
 	usleep(5000);
+	return (0);
 }
 
 void Webserv::close_connection(int fd, Socket *current) {
@@ -188,7 +191,7 @@ std::vector<std::string> Webserv::chunk_message(int fd, std::string *message) {
 		}
 		message->insert(message->find("\r\n", message->find("\r\n")) + 2, "Transfer-Encoding: chunked\r\n");
 		std::cout << "\n[RESPONSE FILE]" << std::endl;
-		std::cout << getHttpRequestWithoutBody(*message).c_str() << NONE << std::endl << std::endl;
+		std::cout << getHttpRequestWithoutBody(*message).c_str() << std::endl << std::endl;
 		size_t sent = 0;
 		bool first_chunk = true;
 		std::vector<std::string> chunks;

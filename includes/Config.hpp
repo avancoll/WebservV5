@@ -15,7 +15,7 @@ class Config {
 		void	print_methods_location(std::vector<std::string> method);
 		void	print_errors_location(std::map<int, std::string> errors);
 
-		void	check_content() const;
+		int		check_content() const;
 
 		std::vector<Server>	_servConf;
 		std::ifstream		_file;

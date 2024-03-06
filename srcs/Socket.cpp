@@ -27,6 +27,7 @@ int	Socket::listeningMode(int maxIncoming) {
 		close(_sockFD);
 		return (1);
 	}
+	return (0);
 }
 
 int	Socket::grabConnection(void) {
@@ -65,7 +66,7 @@ int Socket::readConnection(int fd, std::string *req) {
 int Socket::giveResponse(int fd, std::string message) {
 	size_t ret;
 	std::cout << "\n[RESPONSE HTML]" << std::endl;
-	std::cout << getHttpRequestWithoutBody(message).c_str() << NONE << std::endl << std::endl;
+	std::cout << getHttpRequestWithoutBody(message).c_str() << std::endl << std::endl;
 	ret = send(fd, message.c_str(), message.size(), 0);
 	return (ret);
 }
@@ -91,6 +92,7 @@ int	Socket::socketConf() {
 		std::cerr << "Error setting socket options" << std::endl;
 		return (1);
 	}
+	return (0);
 }
 
 int	Socket::shrink_socket_clients(int to_find) {
@@ -100,4 +102,5 @@ int	Socket::shrink_socket_clients(int to_find) {
 			return (1);
 		}
 	}
+	return (0);
 }

@@ -10,9 +10,9 @@ class Webserv {
 		~Webserv();
 
 		void						printInfo(void);
-		void						createServers(void);
-		void 						runServers(void);
-		void						handleServer(int fd, int filter);
+		int							createServers(void);
+		int 						runServers(void);
+		int						handleServer(int fd, int filter);
 		void						shrink_kqueue_fd(int fd);
 		void						handle_client(int fd, size_t serv_index);
 		void 						finished_request(int fd, size_t serv_index);
