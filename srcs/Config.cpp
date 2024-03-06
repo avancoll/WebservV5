@@ -1,6 +1,6 @@
 #include "../includes/Config.hpp"
 
-Config::Config(std::string path) : _servConf(), _file(path) {
+Config::Config(std::string path): _servConf(), _file(path) {
 	std::string	line;
 	std::vector<std::string> split;
 	int		status = 0;

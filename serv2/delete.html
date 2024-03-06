@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>WEBSERV</title>
+<h1 style="color:whitesmoke;">Delete page</h1>
+
+<p style="color:whitesmoke;">Select a file you want to delete :
+	<br>
+	<br>
+		<form>
+		<label for="fileName">File name:</label>
+		<input type="text" id="fileName" name="fileName" required>
+		<input type="submit" value="Submit" id="submitBtn">
+	</form>
+	<br>
+
+	<h3 style="color:whitesmoke;" >Come back to <a href=".." style="color:red;"> Homepage </a></h3>
+</p>
+
+<body style="background-color:#363535;">
+
+	<script>
+		let submitBtn = document.getElementById("submitBtn");
+		submitBtn.addEventListener("click", deleteFile);
+	
+		function deleteFile(event) {
+			event.preventDefault();
+			let xhr = new XMLHttpRequest();
+			let file = document.getElementsByName('fileName')[0].value;
+			xhr.open('DELETE', `http://localhost:1111/uploads/${file}`);
+			xhr.send();
+			xhr.onload = function() {
+				if (xhr.status === 200) {
+				window.location.href = "http://localhost:1111/delete.html";
+			} else {
+				window.location.href = "http://localhost:1111/204.html";
+				}
+			};
+		}
+	</script>
+
+</body>
+</html>
